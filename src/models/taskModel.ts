@@ -994,7 +994,6 @@ export async function searchTasksWithCommand(
   const totalResults = allTasks.length;
   const totalPages = Math.ceil(totalResults / pageSize);
   const safePage = Math.max(1, Math.min(page, totalPages || 1)); // 確保頁碼有效
-  const safePage = Math.max(1, Math.min(page, totalPages || 1)); // Ensure page number is valid
   const startIndex = (safePage - 1) * pageSize;
   const endIndex = Math.min(startIndex + pageSize, totalResults);
   const paginatedTasks = allTasks.slice(startIndex, endIndex);
@@ -1079,7 +1078,6 @@ function escapeShellArg(arg: string): string {
   return arg
     .replace(/[\x00-\x1F\x7F]/g, "") // 控制字符
     .replace(/[&;`$"'<>|]/g, ""); // Shell 特殊字符
-    .replace(/[&;`$"'<>|]/g, ""); // Shell special characters
 }
 
 // 過濾當前任務列表

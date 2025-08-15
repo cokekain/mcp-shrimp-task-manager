@@ -1,0 +1,15 @@
+{
+  "name": "MCP Shrimp Task Manager DevContainer",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+      "settings": { "terminal.integrated.shell.linux": "/bin/sh" }
+    }
+  },
+  "remoteUser": "node",
+  "postCreateCommand": "npm ci"
+}
